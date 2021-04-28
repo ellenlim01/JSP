@@ -1,28 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<%@ page import="cm.koreait.board.*" %>
-<%
-	List<BoardVO> list = (List<BoardVO>) request.getAttribute("data");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>리스트</title>
 </head>
 <body>
-	<h1>리스트</h1>
-	<div>
-		<a href="/write">글쓰기</a>
-	</div>
-	<div>
-		<% 
-			for(int i=0; i<list.size(); i++) {
-				BoardVO vo = list.get(i);
-		%>
-			<div><%=i  %>, <%=vo.getTitle() %>, <%=vo.getCtnt() %></div>
-		<% } %>
-	</div>
+	<a href="/write">글 쓰기</a>
+	${list.size()}
+	<table>
+		<tr>
+			<td>no</td>
+			<td>제목</td>
+		</tr>
+		<c:forEach var="item" items="${list}" varStatus="status">
+		<tr>
+			<td>${status.index}</td><!-- index는 방번호, count는 1부터 몇번째인지 -->
+			<td><a href="/detail?no=${status.index}">${item.title}</a></td>
+		</tr>	
+		</c:forEach>
+	</table>
 </body>
 </html>

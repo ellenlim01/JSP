@@ -1,8 +1,8 @@
-package cm.koreait.board;
+package com.korait.board2;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
-	public static List<BoardVO> list = new ArrayList();
+	public static List<BoardVO> db = new ArrayList<BoardVO>();
 }

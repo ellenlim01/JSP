@@ -5,27 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
-	.ctnt {
-		width: 80%;
-		height: 80%;
-	}
-</style>
-<title>글 쓰기</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>글 쓰기</h1>
-	<form action="/write" method="post">
+	<h1>글 수정</h1>
+	<form action="/mod" method="post">
 		<div>
-			제목: <input type="text" name="title">	
+			제목: <input type="text" name="title" value="${vo.title}">	
 		</div>
 		<div id="ctnt">
-			내용: <textarea name="ctnt" rows="10" cols="10"></textarea>
+			내용: <textarea name="ctnt" rows="10" cols="10">${vo.ctnt}</textarea>
 		</div>
 		<div>
-			<input type="submit" value="등록">
+			<input type="submit" value="수정">
 		</div>
 	</form>
-
 </body>
 </html>
